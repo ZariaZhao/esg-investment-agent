@@ -2,13 +2,14 @@ from dotenv import load_dotenv
 import os
 from openai import OpenAI
 from pinecone import Pinecone
+import streamlit as st
 
 load_dotenv()
 
 def ask(question):
     # 1. 初始化 OpenAI 和 Pinecone
-    client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
-    pc = Pinecone(api_key=os.getenv("PINECONE_API_KEY"))
+    client = OpenAI(api_key=os.getenv("OPENAI_API_KEY") or st.secrets.get("OPENAI_API_KEY"))
+    pc = Pinecone(api_key=os.getenv("PINECONE_API_KEY") or st.secrets.get("PINECONE_API_KEY"))
     index = pc.Index("esg-rag")
     # 2. 把问题转成向量
     response = client.embeddings.create(
