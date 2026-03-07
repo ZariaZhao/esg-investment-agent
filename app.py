@@ -75,7 +75,7 @@ header {visibility: hidden;}
     background: rgba(255,255,255,0.04) !important;
     border: 1px solid rgba(255,255,255,0.12) !important;
     border-radius: 16px !important;
-    color: #ffffff !important;
+    color: #1a1a2e !important;
     font-family: 'Inter', sans-serif !important;
     font-size: 1.15rem !important;
     padding: 1.1rem 1.5rem !important;
